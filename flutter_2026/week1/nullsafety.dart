@@ -5,7 +5,7 @@ void nullsafety() {
   nickname = 'Al';
 
   // Safe access
-  print(nickname?.length); // ?. means "only call this if not null"
+  print(nickname.length); // ?. means "only call this if not null"
 
   // Give a fallback if null
   String displayName = nickname ?? 'Anonymous'; // ?? means "use this if left side is null"

@@ -11,9 +11,9 @@ void greet({required String name, String greeting = 'Hello'}) {
   print('$greeting, $name!');
 }
 
-void main() {
-  print(add(2, 3));
-  print(square(5));
-  greet(name: 'Beatrice');                    // uses default greeting
-  greet(name: 'Sam', greeting: 'Hey there');   // overrides it
-}
+// void main() {
+//   print(add(2, 3));
+//   print(square(5));
+//   greet(name: 'Beatrice');                    // uses default greeting
+//   greet(name: 'Sam', greeting: 'Hey there');   // overrides it
+// }
