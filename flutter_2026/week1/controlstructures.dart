@@ -1,3 +1,5 @@
+// Run me with:  dart run controlstructures.dart
+
 void main() {
   int score = 75;
 

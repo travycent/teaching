@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.iml
+
+# Dart / Flutter build output (each Flutter app also has its own .gitignore)
+.dart_tool/
+build/

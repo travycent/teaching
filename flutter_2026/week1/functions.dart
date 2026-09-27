@@ -1,3 +1,5 @@
+// Run me with:  dart run functions.dart
+
 // Basic function — looks just like Java minus the access modifier requirement
 int add(int a, int b) {
   return a + b;
@@ -11,9 +13,9 @@ void greet({required String name, String greeting = 'Hello'}) {
   print('$greeting, $name!');
 }
 
-// void main() {
-//   print(add(2, 3));
-//   print(square(5));
-//   greet(name: 'Beatrice');                    // uses default greeting
-//   greet(name: 'Sam', greeting: 'Hey there');   // overrides it
-// }
+void main() {
+  print(add(2, 3));
+  print(square(5));
+  greet(name: 'Beatrice');                    // uses default greeting
+  greet(name: 'Sam', greeting: 'Hey there');   // overrides it
+}

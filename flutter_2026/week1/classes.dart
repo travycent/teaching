@@ -1,4 +1,6 @@
-class Person{
+// Run me with:  dart run classes.dart
+
+class Person {
   String name;
   int age;
 
@@ -19,4 +21,12 @@ class Student extends Person {
   void introduce() {
     print("Hi, my name is $name, I am $age years old and I study at $school.");
   }
+}
+
+void main() {
+  var person = Person('Alice', 30);
+  person.introduce();
+
+  var student = Student('Sam', 20, 'Makerere University');
+  student.introduce(); // uses the overridden version from Student
 }
