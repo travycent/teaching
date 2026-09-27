@@ -67,6 +67,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -84,6 +96,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: _resetCounter,
+            tooltip: 'Reset',
+          ),
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -107,15 +126,34 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                color: _counter < 0
+                    ? Colors.red
+                    : (_counter == 0 ? Colors.grey : Colors.green),
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            // Each FAB on a screen needs its own heroTag, otherwise Flutter
+            // throws an error when navigating to another page.
+            heroTag: 'decrement',
+            onPressed: _decrementCounter,
+            tooltip: 'Decrement',
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 16),
+          FloatingActionButton(
+            heroTag: 'increment',
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
