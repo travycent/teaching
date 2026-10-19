@@ -6,8 +6,13 @@ void variables() {
   String city = 'Kampala'; // explicit type, same idea as Java
 
   // final = "assign once" (like Java's `final`, similar to a Python constant convention)
+  
+  //ANSWER 1
+  //Error: can't assign to the final variable 'age'
+  //Why: 'age' was declared with 'final', so it can be sent only once. Trying to change 
+  //it to 26 is not allowed.  
   final int age = 25;
-  // age = 26; // ERROR: can't reassign a final variable
+   //age = 26; // ERROR: can't reassign a final variable
 
   // const = compile-time constant (stronger than final, must be known at compile time)
   const double pi = 3.14159;

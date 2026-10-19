@@ -24,6 +24,12 @@ void nullsafety() {
   if (nickname != null) {
     print(nickname.length); // 2
   }
+
+  //ANSWER5
+  //It printed null because findNickname only knows the name 'Alice'.
+  //for any other name it returns null, meaning "no nickname found ". 
+  //dart's nullsafety allows this because the return type is String?, where the ? means the value can be null. 
+  print(findNickname('Shau_faizah_faith'));
 }
 
 void main() {
