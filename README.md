@@ -11,6 +11,7 @@ Each week lives in its own folder under [`flutter_2026/`](flutter_2026/) and has
 | 2 | Your first Flutter app: the counter app, widgets, `setState` | [week2](flutter_2026/week2/) |
 | 3 | To-do app: lists, text input, model classes, organising code into folders | [week3](flutter_2026/week3/toddo_app/README.md) |
 | 4 | Finishing the to-do app: saving data, `async`/`await`, JSON, custom widgets, dialogs | [week4](flutter_2026/week4/README.md) |
+| 5 | A backend API with a database: FastAPI, SQLite, SQLModel, CRUD endpoints | [week5](flutter_2026/week5/README.md) |
 
 <!-- Add a new row here each week -->
 
@@ -100,6 +101,22 @@ While the app is running, in the terminal press:
 **In VS Code:** open the project folder, pick a device in the bottom-right status bar,
 open `lib/main.dart` and press **F5**. Saving a file triggers a hot reload automatically.
 
+### C. Python APIs (week 5 onwards)
+
+The backend is a Python project with a `main.py` and a `requirements.txt`. You need
+Python 3.9 or newer (`python3 --version`). Create a virtual environment once, then start the server:
+
+```bash
+cd flutter_2026/week5
+python -m venv venv
+source venv/bin/activate          # Windows: venv\Scripts\activate
+pip install -r requirements.txt   # first time only
+fastapi dev main.py
+```
+
+Open http://127.0.0.1:8000/docs to try the API. Press `Ctrl+C` to stop the server.
+The `venv/` folder and `.db` files are not committed (see `.gitignore`).
+
 ### Other useful commands
 
 ```bash
@@ -127,5 +144,8 @@ teaching/
 └── flutter_2026/
     ├── week1/           ← Dart language basics (plain .dart files)
     ├── week2/           ← Flutter counter app
-    └── week3/           ← Flutter to-do app
+    ├── week3/           ← Flutter to-do app
+    ├── week4/           ← notes for finishing the to-do app (code is in week3/)
+    ├── week5/           ← FastAPI + SQLite backend (Python)
+    └── capstone/        ← capstone project guide
 ```
