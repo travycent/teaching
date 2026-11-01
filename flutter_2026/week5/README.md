@@ -4,6 +4,8 @@ By the end of today you can build an API that stores its data in a database, so 
 
 Next class: login (register, log in, and protect the API with a token).
 
+**Class recording:** [watch on YouTube](https://www.youtube.com/watch?v=9NHZzcuZV7A)
+
 ## Setup
 
 Check your Python version first with `python3 --version`. Python 3.9 or newer works.

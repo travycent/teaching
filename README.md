@@ -5,13 +5,13 @@ Each week lives in its own folder under [`flutter_2026/`](flutter_2026/) and has
 
 ## Weekly lessons
 
-| Week | Topic | Folder |
-|------|-------|--------|
-| 1 | Dart basics: variables, control flow, functions, collections, null safety, classes | [week1](flutter_2026/week1/README.md) |
-| 2 | Your first Flutter app: the counter app, widgets, `setState` | [week2](flutter_2026/week2/) |
-| 3 | To-do app: lists, text input, model classes, organising code into folders | [week3](flutter_2026/week3/toddo_app/README.md) |
-| 4 | Finishing the to-do app: saving data, `async`/`await`, JSON, custom widgets, dialogs | [week4](flutter_2026/week4/README.md) |
-| 5 | A backend API with a database: FastAPI, SQLite, SQLModel, CRUD endpoints | [week5](flutter_2026/week5/README.md) |
+| Week | Topic | Folder | Recording |
+|------|-------|--------|-----------|
+| 1 | Dart basics: variables, control flow, functions, collections, null safety, classes | [week1](flutter_2026/week1/README.md) | |
+| 2 | Your first Flutter app: the counter app, widgets, `setState` | [week2](flutter_2026/week2/) | |
+| 3 | To-do app: lists, text input, model classes, organising code into folders | [week3](flutter_2026/week3/toddo_app/README.md) | |
+| 4 | Finishing the to-do app: saving data, `async`/`await`, JSON, custom widgets, dialogs | [week4](flutter_2026/week4/README.md) | |
+| 5 | A backend API with a database: FastAPI, SQLite, SQLModel, CRUD endpoints | [week5](flutter_2026/week5/README.md) | [Watch](https://www.youtube.com/watch?v=9NHZzcuZV7A) |
 
 <!-- Add a new row here each week -->
 
