@@ -55,22 +55,27 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _step = 1;
 
   void _incrementCounter() {
+    if (_counter + _step <= 10){
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _counter += _step;
     });
+  }
   }
 
   void _decrementCounter() {
+    if (_counter - _step >= -10){
     setState(() {
-      _counter--;
+      _counter-= _step;
     });
+  }
   }
 
   void _resetCounter() {
@@ -132,6 +137,33 @@ class _MyHomePageState extends State<MyHomePage> {
                     : (_counter == 0 ? Colors.grey : Colors.green),
               ),
             ),
+            Text(_counter % 2 == 0 ? 'Even' : 'Odd'),
+            // At 0, i decided to HIDE the "High five!" message.
+            //Mathematically, 0 is a multiple of 5 (0 % 5 == 0), but 0 is also
+            //the starting value of the app. if the message showed at 0, it would 
+            //appear as soon as the app opens, before the user has done anything, 
+            //and it would look like a bug instead of a reward.
+            //So i added the condition _counter != 0, which makes the message 
+            //appear only when the user actually reaches 5, 10.
+                        if (_counter != 0 && _counter % 5 == 0)
+            const Text("High five! That's a multiple of 5 ",),
+
+         Row(
+          mainAxisAlignment: MainAxisAlignment.center,children: [
+            const Text('Count by 5'),
+            Switch(
+              value: _step ==5,
+              onChanged: (bool value){
+                setState(() {
+                  _step = value ? 5 : 1;
+                });
+              },
+            ),
+          ],
+
+
+
+         ),
           ],
         ),
       ),
@@ -153,6 +185,11 @@ class _MyHomePageState extends State<MyHomePage> {
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),
+       
+       const SizedBox(width: 16),
+       FloatingActionButton(heroTag: 'reset', onPressed: _resetCounter,
+       tooltip: 'Reset', child: const Icon(Icons.refresh ),
+       ),
         ],
       ),
     );
