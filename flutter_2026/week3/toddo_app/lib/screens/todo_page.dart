@@ -42,11 +42,59 @@ class _TodoPageState extends State<TodoPage> {
     });
   }
 
-  void _deleteTask(int index) {
+void _toggleImportant(int index) {
+  setState(() {
+    _tasks[index].isImportant = !_tasks[index].isImportant;
+  });
+}
+
+  Future<void> _deleteTask(int index) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Delete this task?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+    if (!mounted) return;
+
+    final removedTask = _tasks[index];
     setState(() {
       _tasks.removeAt(index);
     });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('Task deleted'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              _tasks.insert(index, removedTask);
+            });
+          },
+        ),
+      ),
+    );
   }
+  
+  void _clearCompleted() {
+  setState(() {
+    _tasks.removeWhere((t) => t.isDone); 
+  });
+ 
+}
 
   // dispose() runs when this screen is removed. Controllers hold on to
   // resources, so we must dispose them ourselves to avoid memory leaks.
@@ -59,8 +107,19 @@ class _TodoPageState extends State<TodoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('My Tasks')),
+      appBar: AppBar(
+        title: Text('My Tasks (${_tasks.where((t) => !t.isDone).length} left)'),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.delete_sweep),
+          tooltip: 'Clear completed',
+          onPressed: _tasks.any((t) => t.isDone) ? _clearCompleted : null,
+          ),
+      ],
+      ),
+   
       // Column stacks its children top to bottom: the input row, then the list.
+     
       body: Column(
         children: [
           // --- Input row: text box + Add button ---
@@ -106,6 +165,7 @@ class _TodoPageState extends State<TodoPage> {
                       final task = _tasks[index];
                       // ListTile is a ready-made row with leading / title / trailing slots.
                       return ListTile(
+                        onLongPress: () => _toggleImportant(index),
                         // Left side: checkbox shows and toggles isDone.
                         leading: Checkbox(
                           value: task.isDone,
@@ -120,7 +180,7 @@ class _TodoPageState extends State<TodoPage> {
                             decoration: task.isDone
                                 ? TextDecoration.lineThrough
                                 : null,
-                            color: task.isDone ? Colors.grey : null,
+                            color: task.isDone ? Colors.grey : (task.isImportant ? Colors.red : null),
                           ),
                         ),
 
