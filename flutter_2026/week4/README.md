@@ -97,4 +97,4 @@ the page, tests call `pumpAndSettle()` to wait for loading to finish.
 
 ## Next week
 
-We start a new project.
+We start a new project: a backend API with a database. See [week 5](../week5/README.md).

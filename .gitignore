@@ -9,3 +9,8 @@
 # Dart / Flutter build output (each Flutter app also has its own .gitignore)
 .dart_tool/
 build/
+
+# Python (week 5 onwards)
+venv/
+__pycache__/
+*.db
