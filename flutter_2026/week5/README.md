@@ -2,7 +2,7 @@
 
 By the end of today you can build an API that stores its data in a database, so nothing is lost when the server restarts.
 
-Next class: login (register, log in, and protect the API with a token).
+Next class: [week 6, login](../week6/README.md) (register, log in, and protect the API with a token).
 
 **Class recording:** [watch on YouTube](https://www.youtube.com/watch?v=9NHZzcuZV7A)
 
