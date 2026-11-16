@@ -12,6 +12,7 @@ Each week lives in its own folder under [`flutter_2026/`](flutter_2026/) and has
 | 3 | To-do app: lists, text input, model classes, organising code into folders | [week3](flutter_2026/week3/toddo_app/README.md) | |
 | 4 | Finishing the to-do app: saving data, `async`/`await`, JSON, custom widgets, dialogs | [week4](flutter_2026/week4/README.md) | |
 | 5 | A backend API with a database: FastAPI, SQLite, SQLModel, CRUD endpoints | [week5](flutter_2026/week5/README.md) | [Watch](https://www.youtube.com/watch?v=9NHZzcuZV7A) |
+| 6 | Login for the API: register, password hashing, JWT tokens, protected endpoints, categories | [week6](flutter_2026/week6/README.md) | |
 
 <!-- Add a new row here each week -->
 
@@ -104,7 +105,8 @@ open `lib/main.dart` and press **F5**. Saving a file triggers a hot reload autom
 ### C. Python APIs (week 5 onwards)
 
 The backend is a Python project with a `main.py` and a `requirements.txt`. You need
-Python 3.9 or newer (`python3 --version`). Create a virtual environment once, then start the server:
+Python 3.9 or newer (`python3 --version`). Create a virtual environment once in each week's
+folder, then start the server (use `week6` for the version with login):
 
 ```bash
 cd flutter_2026/week5
@@ -147,5 +149,6 @@ teaching/
     ├── week3/           ← Flutter to-do app
     ├── week4/           ← notes for finishing the to-do app (code is in week3/)
     ├── week5/           ← FastAPI + SQLite backend (Python)
+    ├── week6/           ← the same backend with login and JWT tokens
     └── capstone/        ← capstone project guide
 ```
