@@ -1,0 +1,70 @@
+
+## Database Tables
+
+### users table (Master Table)
+| Field | Type | Description |
+|-------|------|-------------|
+| user_id (PK) | INT | Unique ID |
+| full_name | VARCHAR | Full name |
+| email | VARCHAR | Login email |
+| phone | VARCHAR | Contact number |
+| password | VARCHAR | Hashed password |
+| role | VARCHAR | Mother, Health Worker, or Admin |
+| created_at | DATETIME | Date registered |
+
+### mothers table
+| Field | Type | Description |
+|-------|------|-------------|
+| mother_id (PK) | INT | Unique ID |
+| user_id (FK) | INT | Links to users |
+| date_of_birth | DATE | Date of birth |
+| address | VARCHAR | Home address |
+| expected_delivery_date | DATE | Due date |
+
+### children table
+| Field | Type | Description |
+|-------|------|-------------|
+| child_id (PK) | INT | Unique ID |
+| mother_id (FK) | INT | Links to mothers |
+| name | VARCHAR | Child's name |
+| date_of_birth | DATE | Date of birth |
+| gender | VARCHAR | Gender |
+
+### antenatal_visits table
+| Field | Type | Description |
+|-------|------|-------------|
+| visit_id (PK) | INT | Unique ID |
+| mother_id (FK) | INT | Links to mothers |
+| health_worker_id (FK) | INT | Links to users |
+| visit_date | DATE | Date of visit |
+| blood_pressure | VARCHAR | BP reading |
+| weight | DECIMAL | Weight in kg |
+| notes | TEXT | Observations |
+
+### immunizations table
+| Field | Type | Description |
+|-------|------|-------------|
+| immunization_id (PK) | INT | Unique ID |
+| child_id (FK) | INT | Links to children |
+| vaccine_name | VARCHAR | Vaccine given |
+| date_given | DATE | Date given |
+| next_due_date | DATE | Next dose date |
+
+### growth_records table
+| Field | Type | Description |
+|-------|------|-------------|
+| record_id (PK) | INT | Unique ID |
+| child_id (FK) | INT | Links to children |
+| record_date | DATE | Date measured |
+| weight | DECIMAL | Weight in kg |
+| height | DECIMAL | Height in cm |
+
+### appointments table
+| Field | Type | Description |
+|-------|------|-------------|
+| appointment_id (PK) | INT | Unique ID |
+| user_id (FK) | INT | Links to users |
+| appointment_date | DATETIME | Scheduled time |
+| status | VARCHAR | Pending, Attended, Missed |
+PK -PRIMARY KEY
+FK -FOREIGN KEY 
