@@ -5,12 +5,10 @@
 | Field | Type | Description |
 |-------|------|-------------|
 | user_id (PK) | INT | Unique ID |
-| full_name | VARCHAR | Full name |
-| email | VARCHAR | Login email |
+| name | VARCHAR | Full name |
 | phone | VARCHAR | Contact number |
 | password | VARCHAR | Hashed password |
 | role | VARCHAR | Mother, Health Worker, or Admin |
-| created_at | DATETIME | Date registered |
 
 ### mothers table
 | Field | Type | Description |
@@ -18,17 +16,18 @@
 | mother_id (PK) | INT | Unique ID |
 | user_id (FK) | INT | Links to users |
 | date_of_birth | DATE | Date of birth |
-| address | VARCHAR | Home address |
-| expected_delivery_date | DATE | Due date |
+| village | VARCHAR | Home address |
+| next_due_date | DATE | expected_delivery_date |
 
 ### children table
 | Field | Type | Description |
 |-------|------|-------------|
-| child_id (PK) | INT | Unique ID |
+| id (PK) | INT | Unique ID |
 | mother_id (FK) | INT | Links to mothers |
 | name | VARCHAR | Child's name |
 | date_of_birth | DATE | Date of birth |
-| gender | VARCHAR | Gender |
+| sex | VARCHAR | Gender |
+|birth_weight | DECIMAL | Child weight after birth
 
 ### antenatal_visits table
 | Field | Type | Description |
@@ -36,28 +35,29 @@
 | visit_id (PK) | INT | Unique ID |
 | mother_id (FK) | INT | Links to mothers |
 | health_worker_id (FK) | INT | Links to users |
+| child_id (FK) | INT | Links to children |
 | visit_date | DATE | Date of visit |
 | blood_pressure | VARCHAR | BP reading |
 | weight | DECIMAL | Weight in kg |
 | notes | TEXT | Observations |
 
-### immunizations table
+### vaccinations table
 | Field | Type | Description |
 |-------|------|-------------|
-| immunization_id (PK) | INT | Unique ID |
+| vaccinations_id (PK) | INT | Unique ID |
 | child_id (FK) | INT | Links to children |
-| vaccine_name | VARCHAR | Vaccine given |
+| vaccine | VARCHAR | Vaccine given |
 | date_given | DATE | Date given |
-| next_due_date | DATE | Next dose date |
+| date_due | DATE | Next dose date |
 
-### growth_records table
+### reminders table
 | Field | Type | Description |
 |-------|------|-------------|
 | record_id (PK) | INT | Unique ID |
-| child_id (FK) | INT | Links to children |
-| record_date | DATE | Date measured |
-| weight | DECIMAL | Weight in kg |
-| height | DECIMAL | Height in cm |
+| user_id (FK) | INT | Links to users |
+| message | VARCHAR | reminders to mothers, healthworkers and admin |
+| send_date | DECIMAL | scheduled time before the appointments |
+| sent | BOOLEAN | true or false |
 
 ### appointments table
 | Field | Type | Description |
@@ -66,5 +66,6 @@
 | user_id (FK) | INT | Links to users |
 | appointment_date | DATETIME | Scheduled time |
 | status | VARCHAR | Pending, Attended, Missed |
+| type |VARCHAR | antenatal
 PK -PRIMARY KEY
 FK -FOREIGN KEY 
