@@ -17,7 +17,7 @@
 | user_id (FK) | INT | Links to users |
 | date_of_birth | DATE | Date of birth |
 | village | VARCHAR | Home address |
-| next_due_date | DATE | expected_delivery_date |
+| date_due | DATE | expected_delivery_date |
 
 ### children table
 | Field | Type | Description |
