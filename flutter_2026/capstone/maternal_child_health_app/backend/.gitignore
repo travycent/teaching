@@ -1,3 +1,7 @@
 venv/
 __pycache__/
 *.db
+maternal.db
+*.db
+__pycache__/
+venv/
